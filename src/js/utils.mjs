@@ -32,3 +32,4 @@ export function getColorNames(colors) {
     ? colors.map(c => c.ColorName).join(', ')
     : "N/A";
 }
+  
