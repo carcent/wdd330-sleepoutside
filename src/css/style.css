@@ -90,7 +90,7 @@ p {
   margin-top: -1.3em;
 }
 
-.logo--square > div {
+.logo--square>div {
   margin-top: -1.7em;
 }
 
@@ -254,6 +254,25 @@ button {
   .cart-card {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
+  }
+
+  .cart-footer {
+    padding: 1rem;
+    border-top: 1px solid var(--light-grey);
+    text-align: center;
+    background-color: var(--primary-color);
+  }
+
+
+  .cart-total {
+    font-size: var(--large-font);
+    font-weight: bold;
+    margin: 0.5em 0;
+  }
+
+
+  .hide {
+    display: none;
   }
 }
 
