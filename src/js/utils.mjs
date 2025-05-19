@@ -25,6 +25,7 @@ export function setClick(selector, callback) {
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
+<<<<<<< HEAD
   return urlParams.get(param);
 }
 export function getColorNames(colors) {
@@ -32,6 +33,7 @@ export function getColorNames(colors) {
     ? colors.map(c => c.ColorName).join(', ')
     : "N/A";
 }
+<<<<<<< Updated upstream
 
 export function renderListWithTemplate(templateFn, parentElement, list, position = 'afterbegin', clear = false) {
   if (clear) {
@@ -40,3 +42,34 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
   const htmlStrings = list.map(templateFn);
   parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
 }  
+=======
+=======
+  const product = urlParams.get('product')
+  return product
+}
+
+export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false){
+        clear ? parentElement.innerHTML = "" : 0; 
+        const htmlStrings = list.map(templateFn);
+        if(clear){
+          parentElement.innerHTML = "";
+        };
+        parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
+}
+
+export function getLocalStorageItemIndex(array, attr, value) {
+  let i = array.length;
+  let indexNumber = 0;
+  while(i--) {
+    if( array[i] && array[i].hasOwnProperty(attr) && (arguments.length > 2 && array[i][attr] === value )){
+      indexNumber = i;
+    }
+  }
+  return indexNumber;
+}
+
+export function removeLocalStorageKey(key) {
+  localStorage.removeItem(key);
+}
+>>>>>>> 7432f0762d44dd73489e56a70561bc716dba33d0
+>>>>>>> Stashed changes

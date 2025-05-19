@@ -277,4 +277,15 @@ button {
 footer {
   font-size: var(--small-font);
   padding: 1em;
+<<<<<<< HEAD
 }
+=======
+}
+
+.remove-item {
+  text-align: center;
+  grid-column: 3;
+  font-size: medium;
+  user-select: none;
+}
+>>>>>>> 7432f0762d44dd73489e56a70561bc716dba33d0

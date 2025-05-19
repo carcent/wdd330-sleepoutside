@@ -1,3 +1,8 @@
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> Stashed changes
 import { setLocalStorage, getColorNames } from './utils.mjs';
 
 export default class ProductDetails {
@@ -54,3 +59,74 @@ export default class ProductDetails {
         setLocalStorage('so-cart', this.product);
     }
 }
+<<<<<<< Updated upstream
+=======
+=======
+        this.product = await this.dataSource.findProductbyId(this.productId);
+        this.renderProductDetails();
+        document
+            .getElementById("addToCart")
+            .addEventListener("click", this.addToCartHandler.bind(this));
+    }
+
+=======
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+
+export default class ProductDetails {
+
+    constructor(productId, dataSource){
+      this.productId = productId;
+      this.product = {};
+      this.dataSource = dataSource;
+    }
+
+    async init() {
+        this.product = await this.dataSource.findProductById(this.productId);
+
+        this.renderProductDetails();
+
+        document
+        .getElementById('addToCart')
+        .addEventListener('click', this.addProductToCart.bind(this));
+    }
+    
+>>>>>>> 7432f0762d44dd73489e56a70561bc716dba33d0
+    addProductToCart() {
+        const cartItems = getLocalStorage("so-cart") || [];
+        cartItems.push(this.product);
+        setLocalStorage("so-cart", cartItems);
+    }
+
+    renderProductDetails() {
+        productDetailsTemplate(this.product);
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7432f0762d44dd73489e56a70561bc716dba33d0
+    }
+}
+
+function productDetailsTemplate(product) {
+    document.querySelector('h2').textContent = product.Brand.Name;
+    document.querySelector('h3').textContent = product.NameWithoutBrand;
+
+    const productImage = document.getElementById('productImage');
+    productImage.src = product.Image;
+    productImage.alt = product.NameWithoutBrand;
+<<<<<<< HEAD
+
+    document.getElementById('productPrice').textContent = product.finalPrice;
+    document.getElementById('productColor').textContent = product.Colors[0].ColorName;
+    document.getElementById('productDesc').innerHTML = product.DescriptionHtmlSimple;
+    document.getElementById('addToCart').dataset.id = product.Id;
+
+}
+>>>>>>> c6908e2b623b50e7a05eba7d5985d3bd45757723
+=======
+    document.getElementById('productPrice').textContent = "$" + product.FinalPrice;
+    document.getElementById('productColor').textContent = product.Colors[0].ColorName;
+    document.getElementById('productDesc').innerHTML = product.DescriptionHtmlSimple;
+    document.getElementById('addToCart').dataset.id = product.Id;
+}
+>>>>>>> 7432f0762d44dd73489e56a70561bc716dba33d0
+>>>>>>> Stashed changes
