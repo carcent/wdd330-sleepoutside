@@ -13,13 +13,14 @@ export default class ProductDetails {
   async init() {
     //  There are a few things that need to happen before the class can be used. Some will happen in the constructor, automatically. Other Others need to be controlled and will be placed in this init method.
     // use the datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
-    this.product = await this.dataSource.fildProductById(this.productId);
+    this.product = await this.dataSource.findProductById(this.productId);
     // the product details are needed before rendering the HTML
     this.renderProductDetials();
     // once the HTML is rendered, add a listener to the Add to Cart button
     // Notice the .bind(this). This callback will not work if the bind(this) is missing. Review the readings from this week on 'this' to understand why.
     // add listener to Add to Cart button
-    document.getElementById('addToCart').addEventListener('click', this.addToCart.bind(this));
+    document.getElementById("addToCart")
+      .addEventListener('click', this.addProductToCart.bind(this));
   }
 
   addProductToCart(product) {
@@ -35,7 +36,7 @@ export default class ProductDetails {
 }
 
 function ProductDetailsTemplate(product) {
-  document.querySelector('h2').textContent = this.product.Brand.Name;
+  document.querySelector('h2').textContent = product.Brand.Name;
   document.querySelector('h3').textContent = product.NameWithoutBrand;
   
   const productImage = document.getElementById('productImage');
