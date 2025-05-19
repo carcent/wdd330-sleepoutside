@@ -5,11 +5,6 @@ import {
   removeLocalStorageKey,
 } from "./utils.mjs";
 
-<<<<<<< HEAD
-function renderCartContents(items) {
-  const htmlItems = items.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
-=======
 function renderCartContents() {
   document.querySelector(".product-list").innerHTML = "";
   const cartItems = getLocalStorage("so-cart") || "The Cart Is Empty";
@@ -26,7 +21,6 @@ function renderCartContents() {
   }
 
   // document.querySelector(".remove-item").addEventListener("click", () => {removeItem(this)})
->>>>>>> 7432f0762d44dd73489e56a70561bc716dba33d0
 }
 
 function cartItemTemplate(item) {
