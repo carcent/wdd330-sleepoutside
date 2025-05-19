@@ -5,11 +5,6 @@ import {
   removeLocalStorageKey,
 } from "./utils.mjs";
 
-<<<<<<< HEAD
-function renderCartContents(items) {
-  const htmlItems = items.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
-=======
 function renderCartContents() {
   document.querySelector(".product-list").innerHTML = "";
   const cartItems = getLocalStorage("so-cart") || "The Cart Is Empty";
@@ -26,7 +21,6 @@ function renderCartContents() {
   }
 
   // document.querySelector(".remove-item").addEventListener("click", () => {removeItem(this)})
->>>>>>> 7432f0762d44dd73489e56a70561bc716dba33d0
 }
 
 function cartItemTemplate(item) {
@@ -45,33 +39,10 @@ function cartItemTemplate(item) {
   <p class="cart-card__price">$${item.FinalPrice}</p>
   <span class="remove-item" id="${item.Id}"><b>X</b></span>
 </li>`;
+
   return newItem;
 }
 
-<<<<<<< HEAD
-
-
-function calculateCartTotal(items) {
-  if (!items || items.length === 0) return;
-  let total = 0;
-  items.forEach((item) => {
-    const price = parseFloat(item.FinalPrice || item.price || 0);
-    const quantity = item.quantity || 1;
-    total += price * quantity;
-  });
-
-  const cartFooter = document.querySelector(".cart-footer");
-  const totalAmount = document.querySelector("cart-total");
-
-  if (totalAmount && cartFooter) {
-    totalAmount.textContent = total.toFixed(2);
-    cartFooter.classList.remove("hide");
-  }
-}
-const cartItems = getLocalStorage("so-cart");
-renderCartContents(cartItems);
-calculateCartTotal(cartItems);
-=======
 function removeItem(item) {
   const itemId = item.id;
   const cartItems = getLocalStorage("so-cart");
@@ -85,4 +56,3 @@ function removeItem(item) {
 }
 
 renderCartContents();
->>>>>>> 7432f0762d44dd73489e56a70561bc716dba33d0
