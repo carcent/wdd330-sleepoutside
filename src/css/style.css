@@ -261,3 +261,10 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+.remove-item {
+  text-align: center;
+  grid-column: 3;
+  font-size: medium;
+  user-select: none;
+}

@@ -37,3 +37,18 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
         };
         parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
 }
+
+export function getLocalStorageItemIndex(array, attr, value) {
+  let i = array.length;
+  let indexNumber = 0;
+  while(i--) {
+    if( array[i] && array[i].hasOwnProperty(attr) && (arguments.length > 2 && array[i][attr] === value )){
+      indexNumber = i;
+    }
+  }
+  return indexNumber;
+}
+
+export function removeLocalStorageItem(key) {
+  localStorage.removeItem(key);
+}
