@@ -49,6 +49,6 @@ export function getLocalStorageItemIndex(array, attr, value) {
   return indexNumber;
 }
 
-export function removeLocalStorageItem(key) {
+export function removeLocalStorageKey(key) {
   localStorage.removeItem(key);
 }

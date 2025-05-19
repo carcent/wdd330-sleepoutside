@@ -2,7 +2,7 @@ import {
   getLocalStorage,
   getLocalStorageItemIndex,
   setLocalStorage,
-  removeLocalStorageItem,
+  removeLocalStorageKey,
 } from "./utils.mjs";
 
 function renderCartContents() {
@@ -50,7 +50,7 @@ function removeItem(item) {
   cartItems.splice(itemIndex, 1);
   setLocalStorage("so-cart", cartItems);
   if (cartItems.length == 0) {
-    removeLocalStorageItem("so-cart");
+    removeLocalStorageKey("so-cart");
   }
   renderCartContents();
 }
