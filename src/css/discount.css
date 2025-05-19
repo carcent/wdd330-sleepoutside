@@ -1,0 +1,10 @@
+#savePrice {
+    background-color: red;
+    color: white;
+}
+.product-card__priceDiscount, .product-card__priceSaved, .product-card__price {
+    text-align: center;    
+}
+/* #productFinalPrice
+#productPrice
+#savePrice */
