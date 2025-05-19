@@ -25,31 +25,30 @@ export function setClick(selector, callback) {
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get(param);
-  return product;
-}
-
-export function renderListWithTemplate(template, parentElement, list, position = "afterbegin", clear = false) {
-  const htmlString = list.map(template);
-
-  if (clear) {
-    parentElement.innerHTML = "";
-  }
-  parentElement.insertAdjacentHTML(position, htmlString.join(""));
-}
-
-export function getParam(param) {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get(param);
+  const product = urlParams.get('product')
   return product
 }
 
-export function renderListWithTemplate(template, parentElement, list, position = "afterbegin", clear = false) {
-  const htmlStrings = list.map(template);
-  // if clear is true we need to clear out the contents of the parent.
-  if (clear) {
-    parentElement.innerHTML = "";
+export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false){
+        clear ? parentElement.innerHTML = "" : 0; 
+        const htmlStrings = list.map(templateFn);
+        if(clear){
+          parentElement.innerHTML = "";
+        };
+        parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
+}
+
+export function getLocalStorageItemIndex(array, attr, value) {
+  let i = array.length;
+  let indexNumber = 0;
+  while(i--) {
+    if( array[i] && array[i].hasOwnProperty(attr) && (arguments.length > 2 && array[i][attr] === value )){
+      indexNumber = i;
+    }
   }
-  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
+  return indexNumber;
+}
+
+export function removeLocalStorageKey(key) {
+  localStorage.removeItem(key);
 }
