@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { setLocalStorage, getColorNames } from './utils.mjs';
-=======
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
->>>>>>> c6908e2b623b50e7a05eba7d5985d3bd45757723
 
 export default class ProductDetails {
 
