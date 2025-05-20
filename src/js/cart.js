@@ -39,6 +39,7 @@ function cartItemTemplate(item) {
   <p class="cart-card__price">$${item.FinalPrice}</p>
   <span class="remove-item" id="${item.Id}"><b>X</b></span>
 </li>`;
+
   return newItem;
 }
 
@@ -54,4 +55,8 @@ function removeItem(item) {
   renderCartContents();
 }
 
+<<<<<<< HEAD
 renderCartContents();
+=======
+renderCartContents();
+>>>>>>> 658632ad4df849c628b191e6d5ab62b45a3bf6bb

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { setLocalStorage, getColorNames } from './utils.mjs';
+=======
+import { setLocalStorage, getLocalStorage, getColorNames } from './utils.mjs';
+>>>>>>> 658632ad4df849c628b191e6d5ab62b45a3bf6bb
 
 export default class ProductDetails {
 
@@ -11,21 +15,31 @@ export default class ProductDetails {
     async init() {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 658632ad4df849c628b191e6d5ab62b45a3bf6bb
         try {
             this.product = await this.dataSource.findProductById(this.productId);
             if (!this.product) {
                 throw new Error(`Product not found with ID: ${this.productId}`);
             }
+
             this.renderProductDetails();
-            document.getElementById('addToCart')
-                .addEventListener('click', this.addToCart.bind(this));
+            document
+                .getElementById('addToCart')
+                .addEventListener('click', this.addProductToCart.bind(this));
         } catch (err) {
             console.error('Error initializing product details:', err);
         }
     }
 
+    addProductToCart() {
+        const cartItems = getLocalStorage('so-cart') || [];
+        cartItems.push(this.product);
+        setLocalStorage('so-cart', cartItems);
+    }
+
     renderProductDetails() {
-        // Select all needed elements
         const brandHeading = document.querySelector('.product-detail h3');
         const nameHeading = document.querySelector('.product-detail h2');
         const image = document.querySelector('.product-detail img');
@@ -34,29 +48,20 @@ export default class ProductDetails {
         const description = document.querySelector('.product__description');
         const addToCartButton = document.getElementById('addToCart');
 
-        // Update content with product data
         brandHeading.textContent = this.product.Brand.Name;
         nameHeading.textContent = this.product.NameWithoutBrand;
         image.src = this.product.Image;
         image.alt = this.product.Name;
         price.textContent = `$${this.product.FinalPrice}`;
-
-        // Update colors safely
         color.textContent = getColorNames(this.product.Colors);
-
-        // Correctly set the description HTML
         description.innerHTML =
             this.product.DescriptionHtmlSimple ||
             this.product.Description ||
-            "No description available.";
-
+            'No description available.';
         addToCartButton.dataset.id = this.product.Id;
     }
-
-    addToCart() {
-        setLocalStorage('so-cart', this.product);
-    }
 }
+<<<<<<< HEAD
 =======
         this.product = await this.dataSource.findProductbyId(this.productId);
         this.renderProductDetails();
@@ -104,3 +109,5 @@ function productDetailsTemplate(product) {
 =======
 }
 >>>>>>> f18fa220c9cf5194dc1f39fba6231428018ed091
+=======
+>>>>>>> 658632ad4df849c628b191e6d5ab62b45a3bf6bb
