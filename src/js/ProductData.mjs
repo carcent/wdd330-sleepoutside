@@ -32,8 +32,7 @@ export default class ProductList {
   }
 }
 
-<<<<<<< HEAD
-export default class ProductData {
+export class ProductData {
   constructor(category) {
     this.category = category;
     this.path = `../json/${this.category}.json`;
@@ -48,6 +47,3 @@ export default class ProductData {
     return products.find(function(item) { return item.Id === id; });
   }
 }
-=======
-
->>>>>>> 658632ad4df849c628b191e6d5ab62b45a3bf6bb

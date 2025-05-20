@@ -9,7 +9,6 @@ function addProductToCart(product) {
   setLocalStorage("so-cart", cartItems);
 }
 // add to cart button event handler
-<<<<<<< HEAD
 // async function addToCartHandler(e) {
 //   const product = await dataSource.findProductById(e.target.dataset.id);
 //   addProductToCart(product);
@@ -19,7 +18,6 @@ function addProductToCart(product) {
 // document
 //   .getElementById("addToCart")
 //   .addEventListener("click", addToCartHandler);
-=======
 async function addToCartHandler(e) {
   const product = await dataSource.findProductById(e.target.dataset.id);
   addProductToCart(product);
@@ -29,4 +27,3 @@ async function addToCartHandler(e) {
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
->>>>>>> 658632ad4df849c628b191e6d5ab62b45a3bf6bb

@@ -54,9 +54,3 @@ function removeItem(item) {
   }
   renderCartContents();
 }
-
-<<<<<<< HEAD
-renderCartContents();
-=======
-renderCartContents();
->>>>>>> 658632ad4df849c628b191e6d5ab62b45a3bf6bb
