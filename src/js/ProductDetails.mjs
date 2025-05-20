@@ -5,13 +5,15 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 >>>>>>> c6908e2b623b50e7a05eba7d5985d3bd45757723
 
 export default class ProductDetails {
-    constructor(productId, dataSource) {
-        this.productId = productId;
-        this.product = {};
-        this.dataSource = dataSource;
+
+    constructor(productId, dataSource){
+      this.productId = productId;
+      this.product = {};
+      this.dataSource = dataSource;
     }
 
     async init() {
+<<<<<<< HEAD
 <<<<<<< HEAD
         try {
             this.product = await this.dataSource.findProductById(this.productId);
@@ -66,7 +68,17 @@ export default class ProductDetails {
             .getElementById("addToCart")
             .addEventListener("click", this.addToCartHandler.bind(this));
     }
+=======
+        this.product = await this.dataSource.findProductById(this.productId);
+>>>>>>> f18fa220c9cf5194dc1f39fba6231428018ed091
 
+        this.renderProductDetails();
+
+        document
+        .getElementById('addToCart')
+        .addEventListener('click', this.addProductToCart.bind(this));
+    }
+    
     addProductToCart() {
         const cartItems = getLocalStorage("so-cart") || [];
         cartItems.push(this.product);
@@ -75,7 +87,6 @@ export default class ProductDetails {
 
     renderProductDetails() {
         productDetailsTemplate(this.product);
-
     }
 }
 
@@ -86,11 +97,14 @@ function productDetailsTemplate(product) {
     const productImage = document.getElementById('productImage');
     productImage.src = product.Image;
     productImage.alt = product.NameWithoutBrand;
-
-    document.getElementById('productPrice').textContent = product.finalPrice;
+    document.getElementById('productPrice').textContent = "$" + product.FinalPrice;
     document.getElementById('productColor').textContent = product.Colors[0].ColorName;
     document.getElementById('productDesc').innerHTML = product.DescriptionHtmlSimple;
     document.getElementById('addToCart').dataset.id = product.Id;
+<<<<<<< HEAD
 
 }
 >>>>>>> c6908e2b623b50e7a05eba7d5985d3bd45757723
+=======
+}
+>>>>>>> f18fa220c9cf5194dc1f39fba6231428018ed091
