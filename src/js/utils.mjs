@@ -38,6 +38,30 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
         parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
 }
 
+export function renderWithTemplate(template, parentElement, data, callback){
+  parentElement.innerHTML = template;
+  if(callback){
+    callback(data);
+  }
+}
+
+export async function loadTemplate(path){
+  const item = await fetch(path);
+  const template = item.text();
+  return template;
+}
+
+export async function loadHeaderFooter (){
+  const header = document.getElementById("header-main");
+  const footer = document.getElementById("footer-main");
+  const headerContent = await loadTemplate("../partials/header.html");
+  const footerContent = await loadTemplate("../partials/footer.html");
+
+  renderWithTemplate(headerContent, header);
+  renderWithTemplate(footerContent, footer);
+
+}
+
 export function getLocalStorageItemIndex(array, attr, value) {
   let i = array.length;
   let indexNumber = 0;
