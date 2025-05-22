@@ -55,5 +55,32 @@ function removeItem(item) {
   renderCartContents();
 }
 
+function calculateCartTotal(items) {
+  if (items == null) return;
+  if (!items || items.length === 0) return;
+  console.log("run")
+  let total = 0;
+  items.forEach((item) => {
+    console.log(item)
+    const price = parseFloat(item.FinalPrice || item.price || 0);
+    const quantity = item.quantity || 1;
+    total += price * quantity;
+  });
+
+
+  const cartFooter = document.querySelector(".cart-footer");
+  const totalAmount = document.querySelector(".cart-total");
+
+
+  if (totalAmount && cartFooter) {
+    console.log(0)
+    totalAmount.textContent = total.toFixed(2);
+    cartFooter.classList.remove("hide");
+  }
+}
+const cartItems = getLocalStorage("so-cart");
+renderCartContents(cartItems);
+calculateCartTotal(cartItems);
+
 renderCartContents();
 // work
