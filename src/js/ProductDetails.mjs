@@ -36,7 +36,11 @@ function productDetailsTemplate(product) {
     const productImage = document.getElementById('productImage');
     productImage.src = product.Image;
     productImage.alt = product.NameWithoutBrand;
-    document.getElementById('productPrice').textContent = "$" + product.FinalPrice;
+    
+    document.getElementById('productFinalPrice').textContent = `$${product.FinalPrice}`;
+    document.getElementById('productPrice').textContent = `$${product.SuggestedRetailPrice}`;
+    document.getElementById('savePrice').textContent = `SAVE $${(product.SuggestedRetailPrice - product.FinalPrice).toFixed(2)}`;
+
     document.getElementById('productColor').textContent = product.Colors[0].ColorName;
     document.getElementById('productDesc').innerHTML = product.DescriptionHtmlSimple;
     document.getElementById('addToCart').dataset.id = product.Id;
