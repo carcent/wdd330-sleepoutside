@@ -54,5 +54,3 @@ function removeItem(item) {
   }
   renderCartContents();
 }
-
-renderCartContents();

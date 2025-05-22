@@ -3,7 +3,6 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   root: "src/",
-
   build: {
     outDir: "../dist",
     rollupOptions: {
@@ -14,5 +13,5 @@ export default defineConfig({
         product: resolve(__dirname, "src/product_pages/index.html"),
       },
     },
-  },
+  }
 });

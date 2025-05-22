@@ -29,20 +29,20 @@ export function getParam(param) {
   return product
 }
 
-export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false){
-        clear ? parentElement.innerHTML = "" : 0; 
-        const htmlStrings = list.map(templateFn);
-        if(clear){
-          parentElement.innerHTML = "";
-        };
-        parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
+export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false) {
+  clear ? parentElement.innerHTML = "" : 0;
+  const htmlStrings = list.map(templateFn);
+  if (clear) {
+    parentElement.innerHTML = "";
+  };
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
 }
 
 export function getLocalStorageItemIndex(array, attr, value) {
   let i = array.length;
   let indexNumber = 0;
-  while(i--) {
-    if( array[i] && array[i].hasOwnProperty(attr) && (arguments.length > 2 && array[i][attr] === value )){
+  while (i--) {
+    if (array[i] && array[i].hasOwnProperty(attr) && (arguments.length > 2 && array[i][attr] === value)) {
       indexNumber = i;
     }
   }
