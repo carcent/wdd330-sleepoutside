@@ -82,3 +82,5 @@ const cartItems = getLocalStorage("so-cart");
 renderCartContents(cartItems);
 calculateCartTotal(cartItems);
 
+renderCartContents();
+// work
