@@ -1,11 +1,13 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getResponsiveImage } from "./utils.mjs";
+
 
 export default class ProductDetails {
 
-    constructor(productId, dataSource){
-      this.productId = productId;
-      this.product = {};
-      this.dataSource = dataSource;
+    constructor(productId, dataSource) {
+        this.productId = productId;
+        this.product = {};
+        this.dataSource = dataSource;
     }
 
     async init() {
@@ -14,10 +16,10 @@ export default class ProductDetails {
         this.renderProductDetails();
 
         document
-        .getElementById('addToCart')
-        .addEventListener('click', this.addProductToCart.bind(this));
+            .getElementById('addToCart')
+            .addEventListener('click', this.addProductToCart.bind(this));
     }
-    
+
     addProductToCart() {
         const cartItems = getLocalStorage("so-cart") || [];
         cartItems.push(this.product);
@@ -34,9 +36,9 @@ function productDetailsTemplate(product) {
     document.querySelector('h3').textContent = product.NameWithoutBrand;
 
     const productImage = document.getElementById('productImage');
-    productImage.src = product.Image;
+    productImage.src = getResponsiveImage(product);
     productImage.alt = product.NameWithoutBrand;
-    
+
     document.getElementById('productFinalPrice').textContent = `$${product.FinalPrice}`;
     document.getElementById('productPrice').textContent = `$${product.SuggestedRetailPrice}`;
     document.getElementById('savePrice').textContent = `SAVE $${(product.SuggestedRetailPrice - product.FinalPrice).toFixed(2)}`;
