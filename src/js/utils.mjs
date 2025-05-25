@@ -29,29 +29,29 @@ export function getParam(param) {
   return product
 }
 
-export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false){
-        clear ? parentElement.innerHTML = "" : 0; 
-        const htmlStrings = list.map(templateFn);
-        if(clear){
-          parentElement.innerHTML = "";
-        };
-        parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
+export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false) {
+  clear ? parentElement.innerHTML = "" : 0;
+  const htmlStrings = list.map(templateFn);
+  if (clear) {
+    parentElement.innerHTML = "";
+  };
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
 }
 
-export function renderWithTemplate(template, parentElement, data, callback){
+export function renderWithTemplate(template, parentElement, data, callback) {
   parentElement.innerHTML = template;
-  if(callback){
+  if (callback) {
     callback(data);
   }
 }
 
-export async function loadTemplate(path){
+export async function loadTemplate(path) {
   const item = await fetch(path);
   const template = item.text();
   return template;
 }
 
-export async function loadHeaderFooter (){
+export async function loadHeaderFooter() {
   const header = document.getElementById("header-main");
   const footer = document.getElementById("footer-main");
   const headerContent = await loadTemplate("../partials/header.html");
@@ -65,8 +65,8 @@ export async function loadHeaderFooter (){
 export function getLocalStorageItemIndex(array, attr, value) {
   let i = array.length;
   let indexNumber = 0;
-  while(i--) {
-    if( array[i] && array[i].hasOwnProperty(attr) && (arguments.length > 2 && array[i][attr] === value )){
+  while (i--) {
+    if (array[i] && array[i].hasOwnProperty(attr) && (arguments.length > 2 && array[i][attr] === value)) {
       indexNumber = i;
     }
   }
@@ -75,4 +75,12 @@ export function getLocalStorageItemIndex(array, attr, value) {
 
 export function removeLocalStorageKey(key) {
   localStorage.removeItem(key);
+}
+
+export function getResponsiveImage(product) {
+  const width = window.innerWidth;
+  let imageUrl = product.Image;
+  if (width < 600 && product.images?.small) return product.Images.small;
+  if (width < 900 && product.images?.medium) return product.Images.medium;
+  return product.Image;
 }
