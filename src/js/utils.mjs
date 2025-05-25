@@ -79,8 +79,15 @@ export function removeLocalStorageKey(key) {
 
 export function getResponsiveImage(product) {
   const width = window.innerWidth;
-  let imageUrl = product.Image;
-  if (width < 600 && product.images?.small) return product.Images.small;
-  if (width < 900 && product.images?.medium) return product.Images.medium;
-  return product.Image;
+  let images = product.Image;
+  if (width < 600 && images?.PrimarySmall) {
+    return images.small;
+  }
+  if (width < 800 && images?.PrimaryMedium) {
+    return images.medium;
+  }
+  if (width < 1440 && images?.PrimaryLarge) {
+    return images.PrimaryLarge;
+  }
+  return images?.PrimaryLarge || product.image;
 }
