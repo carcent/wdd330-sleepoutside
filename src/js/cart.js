@@ -35,8 +35,8 @@ function cartItemTemplate(item) {
     <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
+  <p class="cart-card__quantity">qty: ${item.Quantity}</p>
+  <p class="cart-card__price">$${item.FinalPrice * item.Quantity}</p>
   <span class="remove-item" id="${item.Id}"><b>X</b></span>
 </li>`;
 
@@ -58,12 +58,10 @@ function removeItem(item) {
 function calculateCartTotal(items) {
   if (items == null) return;
   if (!items || items.length === 0) return;
-  console.log("run")
   let total = 0;
   items.forEach((item) => {
-    console.log(item)
     const price = parseFloat(item.FinalPrice || item.price || 0);
-    const quantity = item.quantity || 1;
+    const quantity = item.Quantity || 1;
     total += price * quantity;
   });
 
@@ -73,7 +71,6 @@ function calculateCartTotal(items) {
 
 
   if (totalAmount && cartFooter) {
-    console.log(0)
     totalAmount.textContent = total.toFixed(2);
     cartFooter.classList.remove("hide");
   }
