@@ -1,4 +1,4 @@
-import { renderListWithTemplate } from "./utils.mjs";
+import { capitalizeFirstLetter, renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
   return `<li class="product-card">
@@ -21,7 +21,7 @@ export default class ProductList {
     async init() {
       const list = await this.dataSource.getData(this.category);
       this.renderList(list);
-      document.querySelector(".title").textContent = this.category;
+      document.querySelector(".title").textContent = capitalizeFirstLetter(this.category);
     }
 
     renderList(list) {

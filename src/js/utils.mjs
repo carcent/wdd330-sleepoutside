@@ -73,6 +73,10 @@ export function getLocalStorageItemIndex(array, attr, value) {
   return indexNumber;
 }
 
+export function capitalizeFirstLetter(text) {
+    return String(text).charAt(0).toUpperCase() + String(text).slice(1);
+}
+
 export function removeLocalStorageKey(key) {
   localStorage.removeItem(key);
 }
