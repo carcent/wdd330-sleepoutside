@@ -1,0 +1,14 @@
+.productIcons {
+    text-align: center;
+}
+
+.product-categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.product-categories a {
+    text-align: center;
+    font-size: 15px;
+    max-width: 50px auto;
+}

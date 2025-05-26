@@ -21,11 +21,11 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
-
+// get the product id from the query string
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get('product')
+  const product = urlParams.get(param);
   return product
 }
 
@@ -62,17 +62,17 @@ export async function loadHeaderFooter (){
 
 }
 
-export function getLocalStorageItemIndex(array, attr, value) {
-  let i = array.length;
-  let indexNumber = 0;
-  while(i--) {
-    if( array[i] && array[i].hasOwnProperty(attr) && (arguments.length > 2 && array[i][attr] === value )){
-      indexNumber = i;
-    }
-  }
-  return indexNumber;
-}
+// export function getLocalStorageItemIndex(array, attr, value) {
+//   let i = array.length;
+//   let indexNumber = 0;
+//   while(i--) {
+//     if( array[i] && array[i].hasOwnProperty(attr) && (arguments.length > 2 && array[i][attr] === value )){
+//       indexNumber = i;
+//     }
+//   }
+//   return indexNumber;
+// }
 
-export function removeLocalStorageKey(key) {
-  localStorage.removeItem(key);
-}
+// export function removeLocalStorageKey(key) {
+//   localStorage.removeItem(key);
+// }
