@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, productIsInArray, findProductIndexInArrayById } from "./utils.mjs";
 
 export default class ProductDetails {
 
@@ -20,8 +20,17 @@ export default class ProductDetails {
     
     addProductToCart() {
         const cartItems = getLocalStorage("so-cart") || [];
-        cartItems.push(this.product);
-        setLocalStorage("so-cart", cartItems);
+        const productId = this.product.Id
+        if(cartItems.length != 0 && productIsInArray(productId, cartItems))
+        {
+            const itemIndex = findProductIndexInArrayById(productId, cartItems);
+            cartItems[itemIndex].Quantity ++;
+            setLocalStorage("so-cart", cartItems);
+        } else {
+            this.product.Quantity = 1;
+            cartItems.push(this.product);
+            setLocalStorage("so-cart", cartItems);
+        }
     }
 
     renderProductDetails() {
