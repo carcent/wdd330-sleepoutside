@@ -1,4 +1,4 @@
-@import 'discount.css';
+@import "discount.css";
 
 :root {
   --font-body: Arial, Helvetica, sans-serif;
@@ -92,7 +92,7 @@ p {
   margin-top: -1.3em;
 }
 
-.logo--square>div {
+.logo--square > div {
   margin-top: -1.7em;
 }
 
@@ -265,13 +265,11 @@ button {
     background-color: var(--primary-color);
   }
 
-
   .cart-total {
     font-size: var(--large-font);
     font-weight: bold;
     margin: 0.5em 0;
   }
-
 
   .hide {
     display: none;
