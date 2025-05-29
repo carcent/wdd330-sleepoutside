@@ -243,6 +243,24 @@ button {
   grid-column: 3;
 }
 
+.product-categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+.product-categories a {
+    width: fit-content;
+    justify-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.product-categories img{
+  height: 120px;
+  width: auto;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;

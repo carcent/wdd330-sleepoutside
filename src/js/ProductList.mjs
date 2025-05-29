@@ -1,11 +1,11 @@
-import { renderListWithTemplate } from "./utils.mjs";
+import { capitalizeFirstLetter, renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
   const isDiscounted = product.FinalPrice < product.SuggestedRetailPrice;
 
   return `<li class="product-card">
-    <a href="product_pages/?product=${product.Id}">
-      <img src="${product.Image}" alt="Image of ${product.Name}">
+    <a href="/product_pages/?product=${product.Id}">
+      <img src="${product.Images.PrimaryMedium}" alt="Image of ${product.Name}">
       <h2 class="card__brand">${product.Brand.Name}</h2>
       <h3 class="card__name">${product.Name}</h3>
       <p class="product-card__price">
@@ -23,10 +23,11 @@ export default class ProductList {
     this.listElement = listElement;
   }
 
-  async init() {
-    const list = await this.dataSource.getData();
-    this.renderList(list);
-  }
+    async init() {
+      const list = await this.dataSource.getData(this.category);
+      this.renderList(list);
+      document.querySelector(".title").textContent = capitalizeFirstLetter(this.category);
+    }
 
   renderList(list) {
     renderListWithTemplate(productCardTemplate, this.listElement, list);

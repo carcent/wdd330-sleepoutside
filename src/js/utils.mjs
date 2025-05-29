@@ -25,7 +25,7 @@ export function setClick(selector, callback) {
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get('product')
+  const product = urlParams.get(param)
   return product
 }
 
@@ -52,8 +52,8 @@ export async function loadTemplate(path){
 }
 
 export async function loadHeaderFooter (){
-  const header = document.getElementById("header-main");
-  const footer = document.getElementById("footer-main");
+  const header = document.querySelector("header");
+  const footer = document.querySelector("footer");
   const headerContent = await loadTemplate("../partials/header.html");
   const footerContent = await loadTemplate("../partials/footer.html");
 
@@ -73,6 +73,11 @@ export function getLocalStorageItemIndex(array, attr, value) {
   return indexNumber;
 }
 
+
+export function capitalizeFirstLetter(text) {
+    return String(text).charAt(0).toUpperCase() + String(text).slice(1);
+}  
+  
 export function productIsInArray(productId, array) {
   let IsTrue = false
   array.forEach(item => {
