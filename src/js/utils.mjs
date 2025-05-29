@@ -73,8 +73,32 @@ export function getLocalStorageItemIndex(array, attr, value) {
   return indexNumber;
 }
 
+
 export function capitalizeFirstLetter(text) {
     return String(text).charAt(0).toUpperCase() + String(text).slice(1);
+}  
+  
+export function productIsInArray(productId, array) {
+  let IsTrue = false
+  array.forEach(item => {
+    if (item.Id == productId) {
+      IsTrue = true;
+    } 
+  });
+  return IsTrue;
+}
+
+export function findProductIndexInArrayById(productId, array) {
+  let i = 0;
+  let index = 0;
+  array.forEach(item => {
+    if (item.Id == productId) {
+      index = i;
+    } else {
+      i++;
+    }
+  });
+  return index;
 }
 
 export function removeLocalStorageKey(key) {
