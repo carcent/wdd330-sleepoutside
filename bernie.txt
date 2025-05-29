@@ -1,1 +1,5 @@
 Bernie Zhong
+
+
+.env
+VITE_SERVER_URL=https://wdd330-backend.onrender.com/
