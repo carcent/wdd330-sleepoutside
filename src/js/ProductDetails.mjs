@@ -26,6 +26,7 @@ export default class ProductDetails {
             const itemIndex = findProductIndexInArrayById(productId, cartItems);
             cartItems[itemIndex].Quantity ++;
             setLocalStorage("so-cart", cartItems);
+            alert('Item has been add to cart!');
         } else {
             this.product.Quantity = 1;
             cartItems.push(this.product);
