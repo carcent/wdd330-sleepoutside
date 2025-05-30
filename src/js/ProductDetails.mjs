@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage, productIsInArray, findProductIndexInArrayById } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, productIsInArray, findProductIndexInArrayById, getResponsiveImage } from "./utils.mjs";
 
 export default class ProductDetails {
 
@@ -43,7 +43,7 @@ function productDetailsTemplate(product) {
     document.querySelector('h3').textContent = product.NameWithoutBrand;
 
     const productImage = document.getElementById('productImage');
-    productImage.src = product.Images.PrimaryExtraLarge;
+    productImage.src = getResponsiveImage(product);
     productImage.alt = product.NameWithoutBrand;
     
     document.getElementById('productFinalPrice').textContent = `$${product.FinalPrice}`;

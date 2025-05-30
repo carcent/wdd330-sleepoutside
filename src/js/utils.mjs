@@ -104,3 +104,19 @@ export function findProductIndexInArrayById(productId, array) {
 export function removeLocalStorageKey(key) {
   localStorage.removeItem(key);
 }
+
+export function getResponsiveImage(product) {
+  const width = window.innerWidth;
+  let images = product.Images;
+  if (width < 600 && images?.PrimarySmall) {
+    return images.PrimarySmall;
+  }
+  if (width < 800 && images?.PrimaryMedium) {
+    return images.PrimaryMedium;
+  }
+  if (width < 1440 && images?.PrimaryLarge) {
+    return images.PrimaryLarge;
+  }
+  return images?.PrimaryLarge || product.PrimaryLarge;
+
+}
