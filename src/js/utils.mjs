@@ -60,6 +60,14 @@ export async function loadHeaderFooter (){
   renderWithTemplate(headerContent, header);
   renderWithTemplate(footerContent, footer);
 
+  updateCartCount();
+}
+function updateCartCount() {
+  const countElement = document.querySelector(".cart-count");
+  const cart = JSON.parse(localStorage.getItem("so-cart")) || [];
+  if (countElement) {
+    countElement.textContent = cart.length;
+  }
 }
 
 export function getLocalStorageItemIndex(array, attr, value) {
