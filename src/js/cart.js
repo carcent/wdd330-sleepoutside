@@ -3,8 +3,11 @@ import {
   getLocalStorageItemIndex,
   setLocalStorage,
   removeLocalStorageKey,
+  loadHeaderFooter,
   getResponsiveImage,
 } from "./utils.mjs";
+
+loadHeaderFooter();
 
 function renderCartContents() {
   document.querySelector(".product-list").innerHTML = "";
@@ -76,8 +79,10 @@ function calculateCartTotal(items) {
   }
 }
 const cartItems = getLocalStorage("so-cart");
-renderCartContents(cartItems);
+renderCartContents();
 calculateCartTotal(cartItems);
 
 renderCartContents();
 // work
+
+
