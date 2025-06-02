@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, alertMessage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 const services = new ExternalServices();
@@ -80,12 +80,13 @@ export default class CheckoutProcess {
         order.tax = this.tax;
         order.shipping = this.shipping;
         order.items = packageItems(this.list);
-        console.log(order)
         try {
           const response = await services.checkout(order);
           console.log(response);
         } catch (err) {
-          console.log(err);
+          for (let message in err.message) {
+            alertMessage(err.message[message])
+          }
         }
     }
 }

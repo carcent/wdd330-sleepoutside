@@ -334,3 +334,21 @@ footer {
   color: gray;
   margin-left: 8px;
 }
+
+.alert {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #f0a868;
+  border: #e7720c 3px solid;
+  font-weight: bolder;
+}
+
+.alert span, .alert p {
+  width: 100%;
+}
+
+.alert span {
+  text-align: end;
+  padding-right: 20px;
+}
