@@ -4,6 +4,7 @@ import {
   setLocalStorage,
   removeLocalStorageKey,
   loadHeaderFooter,
+  getResponsiveImage,
 } from "./utils.mjs";
 
 loadHeaderFooter();
@@ -29,7 +30,7 @@ function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
-      src="${item.Images.PrimarySmall}"
+      src="${getResponsiveImage(item)}"
       alt="${item.Name}"
     />
   </a>
