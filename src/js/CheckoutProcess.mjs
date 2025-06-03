@@ -1,4 +1,7 @@
-import { getLocalStorage } from "./utils.mjs";
+import { setLocalStorage, 
+    getLocalStorage, 
+    alertMessage, 
+    removeItem } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 const services = new ExternalServices();
@@ -82,10 +85,22 @@ export default class CheckoutProcess {
         order.items = packageItems(this.list);
         console.log(order)
         try {
-          const response = await services.checkout(order);
-          console.log(response);
+            const response = await services.checkout(order);
+            console.log(response);
+            
+            localStorage.removeItem('so-cart');
+            window.location.href = '../checkout/success.html';
+        
+
         } catch (err) {
-          console.log(err);
+          if (err.name === 'servicesError') {
+            console.error('Service Error:', err.message);
+            this.displayErrorMessage(err.message);
+          } else {
+            console.error('Unexpected error:', err);
+
+          }
+    
         }
     }
 }

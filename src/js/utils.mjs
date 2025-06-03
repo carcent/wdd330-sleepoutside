@@ -104,3 +104,25 @@ export function findProductIndexInArrayById(productId, array) {
 export function removeLocalStorageKey(key) {
   localStorage.removeItem(key);
 }
+
+export function alartMessage(message, scroll = true, duration =3000) {
+  const alert =document.createElement("div");
+  alert.classList.add("alert");
+  alert.innerHTML = `<p>${message}<p><span></span>`;
+
+  aler.addEventListener("click", function (e){
+    if (e.target.tagName ==="SPAN") {
+      main.removeChild(this);
+    }
+  });
+  const main = document.querySelector("main");
+  main.prepend(alert);
+
+  if(scroll) window.scrollto(0, 0);
+
+}
+
+export function removeAllAlerts(){
+  const alerts = document.querySelectorAll(".alert");
+  alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
+}
