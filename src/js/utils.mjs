@@ -125,6 +125,6 @@ export function getResponsiveImage(product) {
   if (width < 1440 && images?.PrimaryLarge) {
     return images.PrimaryLarge;
   }
-  return images?.PrimaryLarge || product.PrimaryLarge;
+  return images?.PrimaryExtraLarge || product.PrimaryExtraLarge;
 
 }

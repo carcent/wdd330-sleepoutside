@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage, productIsInArray, findProductIndexInArrayById } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, productIsInArray, findProductIndexInArrayById, getResponsiveImage } from "./utils.mjs";
 
 export default class ProductDetails {
 
