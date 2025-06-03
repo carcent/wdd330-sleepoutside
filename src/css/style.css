@@ -251,13 +251,13 @@ button {
 }
 
 .product-categories a {
-    width: fit-content;
-    justify-items: center;
-    text-decoration: none;
-    color: black;
+  width: fit-content;
+  justify-items: center;
+  text-decoration: none;
+  color: black;
 }
 
-.product-categories img{
+.product-categories img {
   height: 120px;
   width: auto;
 }
@@ -310,14 +310,35 @@ footer {
 }
 
 .discount-flag {
-  background-color: #ff5252;
-  color: white;
-  font-weight: bold;
-  padding: 2px 6px;
-  margin-left: 8px;
+  color: #fff;
+  background-color: #e53935;
+  padding: 0.5em;
   border-radius: 5px;
-  font-size: 0.75rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 1em;
 }
+
+/* Container for the product image */
+.product-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Ribbon styling */
+.ribbon {
+  position: absolute;
+  top: 60px;
+  left: -60px;
+  background: #e53935;
+  color: white;
+  padding: 5px 20px;
+  transform: rotate(-45deg);
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
 .discount-badge {
   background-color: red;
   color: white;
