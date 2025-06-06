@@ -38,8 +38,3 @@ export default class ExternalServices {
   }
 }
 
-async getData(query) {
-  const response = await fetch(`${this.baseURL}/products/search?q=${query}`);
-  const data = await response.json();
-  return data.Result || data;
-}
