@@ -30,6 +30,17 @@ export default class ProductDetails {
             cartItems.push(this.product);
             setLocalStorage("so-cart", cartItems);
         }
+        // 動畫觸發
+        const cartIcon = document.getElementById('cartIcon');
+        if (cartIcon) {
+            cartIcon.classList.remove('cart-animate');
+            void cartIcon.offsetWidth; // 觸發重繪
+            cartIcon.classList.add('cart-animate');
+            cartIcon.addEventListener('animationend', function handler() {
+                cartIcon.classList.remove('cart-animate');
+                cartIcon.removeEventListener('animationend', handler);
+            });
+        }
     }
 
     renderProductDetails() {
